@@ -1,0 +1,8 @@
+mutation ProductReviewMutation($pid: ID!, $comment: String!) {
+    addReview(
+        productId: $pid
+        addReviewInput: { commentBody: $comment, star: 0 }
+    ) {
+        id
+    }
+}

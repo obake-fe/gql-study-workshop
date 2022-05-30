@@ -1,0 +1,54 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+directive @cacheControl(maxAge: Int, scope: CacheControlScope) on OBJECT | FIELD_DEFINITION | INTERFACE
+
+type Mutation {
+    "指定した商品にレビューを追加する"
+    addReview(addReviewInput: AddReviewInput!, productId: ID!): Review
+    "指定したレビューを削除する"
+    deleteReview(reviewId: ID!): ID
+    "レビューの Star 数 を増やす"
+    incrementReviewStars(reviewId: ID!): Review
+}
+
+"商品。だがし。"
+type Product {
+    description: String!
+    id: ID!
+    imageURL: String!
+    name: String!
+    price: Int!
+    reviews: [Review!]!
+}
+
+type Query {
+    "IDを指定した商品単品取得"
+    product(id: ID!): Product
+    "商品の全件取得"
+    products: [Product!]!
+}
+
+"商品のレビュー"
+type Review {
+    commentBody: String!
+    id: ID!
+    star: Int!
+}
+
+enum CacheControlScope {
+    PRIVATE
+    PUBLIC
+}
+
+"The `Upload` scalar type represents a file upload."
+scalar Upload
+
+input AddReviewInput {
+    commentBody: String!
+    star: Int
+}

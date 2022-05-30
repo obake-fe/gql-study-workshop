@@ -1,0 +1,10 @@
+#@see https://qiita.com/pure-adachi/items/f1e03941e8c0ac47c7ee
+
+schema: ../schema.graphql
+documents: ./src/graphql/**/*.graphql
+generates:
+  ./src/types.d.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo

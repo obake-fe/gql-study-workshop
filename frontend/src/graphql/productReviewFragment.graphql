@@ -1,0 +1,7 @@
+fragment ProductReviewFragment on Product {
+    reviews {
+        id
+        star
+        commentBody
+    }
+}
