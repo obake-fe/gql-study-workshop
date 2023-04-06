@@ -8,7 +8,7 @@ export default function Products() {
     return (
         <>
             <ul>
-                {data.products.map((product: { id: string; name: string }) => (
+                {data.products.map((product) => (
                     <Link to={"/products/" + product.id}>{product.name}</Link>
                 ))}
             </ul>

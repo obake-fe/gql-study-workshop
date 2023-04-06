@@ -3,6 +3,7 @@ import { ApolloServer, IResolvers } from "apollo-server";
 import { PrismaClient } from "@prisma/client";
 import { PrismaSelect } from "@paljs/plugins";
 
+// スキーマ定義
 const typeDefs = `
   """
   商品。だがし。
@@ -153,6 +154,8 @@ class PrismaClientPool {
 
 const clientPool = new PrismaClientPool();
 
+// サーバのインスタンスを作成
+// その際、typeDefs(スキーマ)とリゾルバを引数に取る
 const server = new ApolloServer({
   cors: true,
   context() {
